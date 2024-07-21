@@ -6,13 +6,13 @@ The STIX Description Validator ensures that STIX 2.1 description instances adher
 ## ToDo List
 
 - Week 1
-  - ☐ Use Cases Document (10pts)
+  - ☑ Use Cases Document (10pts)
 
 - Week 2
-  - ☐ UML Class Diagrams (10pts)
+  - ☑ UML Class Diagrams (10pts)
 
 - Week 3
-  - ☐ Code uses a test and OOP (20pts)
+  - ☑ Code uses a test and OOP (20pts)
   - ☐ BONUS - Code to obtain data via a web scraper (10pts)
 
 - Week 4
