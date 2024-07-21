@@ -7,9 +7,9 @@ The STIX Description Validator ensures that STIX 2.1 description instances adher
 
 | No. | Repository | Description |
 |-----|------------|-------------|
-| 1-1. | [stixd](https://github.com/ciioprof0/stixd) | Main repository for the project. | 
-| 1-2. | [stixd-cnl](https://github.com/ciioprof0/stixd-cnl) | Definitions for the Controlled Natural Language (CNL). To be developed.|
-| 1-3. | [stixd-validator](https://github.com/ciioprof0/stixd-validator) | Application to verify if a string is a member of the CNL. To be developed.|
+| 1-1. | [stixd](https://github.com/ciioprof0/stixd) | Main repository for the complete project. | 
+| 1-2. | [stixd-cnl](https://github.com/ciioprof0/stixd-cnl) | Definitions for the Controlled Natural Language (CNL). In development.|
+| 1-3. | [stixd-validator](https://github.com/ciioprof0/stixd-validator) | Application to verify if a string is a member of the CNL. In development.|
 
 
 #### Table 2. List of Related Third-Party Repositories
