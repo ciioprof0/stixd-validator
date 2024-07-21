@@ -1,9 +1,5 @@
 import unittest
-from enum import Enum
-from typing import Set
-
-# Importing the classes from the specified file
-from app.classes import (
+from app.stixd_classes import (
     PartOfSpeech, Case, Gender, Number, Person, Tense, Mood, Voice, Transitivity, Language,
     LexicalEntry, Word, FiniteVerb, Noun
 )
