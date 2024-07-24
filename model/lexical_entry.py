@@ -1,5 +1,5 @@
 from model.enums import *
-
+from typing import Any, Dict, List, Optional, Set
 
 class LexicalEntry:
     """
