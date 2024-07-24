@@ -1,5 +1,6 @@
 from enum import Enum
 
+# Common Enumerations
 class Language(Enum):
     """Enumeration for Languages."""
     EN = "en"
@@ -17,7 +18,6 @@ class Person(Enum):
     SECOND_PERSON = "second_person"
     THIRD_PERSON = "third_person"
 
-# Common Enumerations
 class PartOfSpeech(Enum):
     """Enumeration for coarse Universal POS Tag Set."""
     ADJ = "ADJ"
