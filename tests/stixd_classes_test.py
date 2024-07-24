@@ -1,8 +1,17 @@
 import unittest
-from app.stixd_classes import (
-    PartOfSpeech, Case, Gender, Number, Person, Tense, Mood, Voice, Transitivity, Language,
-    LexicalEntry, Word, FiniteVerb, Noun, Corpus
-)
+
+from model.corpus import Corpus
+from model.enums import *
+from model.lexical_entry import LexicalEntry
+from model.noun import Noun
+from model.verb import FiniteVerb
+from model.word import Word
+
+
+# from app.stixd_classes import (
+#     PartOfSpeech, Case, Gender, Number, Person, Tense, Mood, Voice, Transitivity, Language,
+#     LexicalEntry, Word, FiniteVerb, Noun, Corpus
+# )
 
 class TestEnumerations(unittest.TestCase):
     def test_part_of_speech_enum(self):

@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Set, Optional, List, Dict, Any
+from typing import Any, Dict, List, Optional, Set
 
 # Enumerations Classes
 class PartOfSpeech(Enum):
