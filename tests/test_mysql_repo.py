@@ -2,14 +2,14 @@
 
 import pytest
 from db.mysql_repository import MySQLRepository
-from model.lexical_entry import LexicalEntry
+from model.lexical_entry import Lexeme
 
 @pytest.fixture
 def repository():
     return MySQLRepository(host='localhost', user='my_user', password='my_password', database='my_database')
 
 def test_save_and_load_entry(repository):
-    entry = LexicalEntry(
+    entry = Lexeme(
         base_form="test",
         pos="noun",
         definition="a procedure intended to establish the quality, performance, or reliability of something.",

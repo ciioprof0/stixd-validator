@@ -1,4 +1,4 @@
-from model.lexical_entry import LexicalEntry
+from model.lexical_entry import Lexeme
 
 
 class Word:
@@ -6,16 +6,16 @@ class Word:
     A class to represent a word.
 
     Attributes:
-        lex_entry (LexicalEntry): The lexical entry.
+        lex_entry (Lexeme): The lexical entry.
         surface_form (str): The surface form of the word.
     """
 
-    def __init__(self, lex_entry: LexicalEntry, surface_form: str) -> None:
+    def __init__(self, lex_entry: Lexeme, surface_form: str) -> None:
         """
         Constructs all the necessary attributes for the word object.
 
         Args:
-            lex_entry (LexicalEntry): The lexical entry.
+            lex_entry (Lexeme): The lexical entry.
             surface_form (str): The surface form of the word.
         """
         self.lex_entry = lex_entry

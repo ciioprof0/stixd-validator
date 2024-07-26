@@ -2,7 +2,7 @@ import unittest
 
 from model.corpus import Corpus
 from model.enums import *
-from model.lexical_entry import LexicalEntry
+from model.lexical_entry import Lexeme
 from model.noun import Noun
 from model.verb import FiniteVerb
 from model.word import Word
@@ -10,7 +10,7 @@ from model.word import Word
 
 # from app.stixd_classes import (
 #     PartOfSpeech, Case, Gender, Number, Person, Tense, Mood, Voice, Transitivity, Language,
-#     LexicalEntry, Word, FiniteVerb, Noun, Corpus
+#     Lexeme, Word, FiniteVerb, Noun, Corpus
 # )
 
 class TestEnumerations(unittest.TestCase):
@@ -54,14 +54,14 @@ class TestEnumerations(unittest.TestCase):
         self.assertEqual(Language.EN.value, "en")
         self.assertEqual(Language.EN.name, "EN")
 
-class TestLexicalEntry(unittest.TestCase):
+class TestLexeme(unittest.TestCase):
     def setUp(self):
         self.base_form = "run"
         self.pos = PartOfSpeech.VERB
         self.definition = "to move swiftly on foot"
         self.synonyms = set()
         self.antonyms = set()
-        self.lex_entry = LexicalEntry(self.base_form, self.pos, self.definition, self.synonyms, self.antonyms)
+        self.lex_entry = Lexeme(self.base_form, self.pos, self.definition, self.synonyms, self.antonyms)
 
     def test_lexical_entry_attributes(self):
         self.assertEqual(self.lex_entry.base_form, self.base_form)
@@ -75,7 +75,7 @@ class TestWord(unittest.TestCase):
         self.base_form = "run"
         self.pos = PartOfSpeech.VERB
         self.definition = "to move swiftly on foot"
-        self.lex_entry = LexicalEntry(self.base_form, self.pos, self.definition, set(), set())
+        self.lex_entry = Lexeme(self.base_form, self.pos, self.definition, set(), set())
         self.surface_form = "running"
         self.word = Word(self.lex_entry, self.surface_form)
 
@@ -88,7 +88,7 @@ class TestFiniteVerb(unittest.TestCase):
         self.base_form = "run"
         self.pos = PartOfSpeech.VERB
         self.definition = "to move swiftly on foot"
-        self.lex_entry = LexicalEntry(self.base_form, self.pos, self.definition, set(), set())
+        self.lex_entry = Lexeme(self.base_form, self.pos, self.definition, set(), set())
         self.surface_form = "runs"
         self.person = Person.THIRD_PERSON
         self.number = Number.SINGULAR
@@ -111,7 +111,7 @@ class TestNoun(unittest.TestCase):
         self.base_form = "dog"
         self.pos = PartOfSpeech.NOUN
         self.definition = "a domesticated carnivorous mammal"
-        self.lex_entry = LexicalEntry(self.base_form, self.pos, self.definition, set(), set())
+        self.lex_entry = Lexeme(self.base_form, self.pos, self.definition, set(), set())
         self.surface_form = "dogs"
         self.case = Case.NOMINATIVE
         self.number = Number.PLURAL

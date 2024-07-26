@@ -3,7 +3,7 @@
 from .corpus import Corpus
 from .enums import Language, Number, Person, PartOfSpeech
 from .enums import Case, Gender, Tense, Mood, Transitivity, Voice
-from .lexical_entry import LexicalEntry
+from .lexical_entry import Lexeme
 from .noun import Noun
 from .verb import FiniteVerb
 from .word import Word
@@ -20,7 +20,7 @@ __all__ = [
     "Mood",
     "Transitivity",
     "Voice",
-    "LexicalEntry",
+    "Lexeme",
     "Noun",
     "FiniteVerb",
     "Word"
