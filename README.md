@@ -32,10 +32,10 @@ The STIX Description Validator ensures that STIX 2.1 description instances adher
 
 - Week 3
   - ☑ Code uses a test and OOP (20pts)
-  - ☐ BONUS - Code to obtain data via a web scraper (10pts)
+  - ☑ BONUS - Code to obtain data via a web scraper (10pts)
 
 - Week 4
-  - ☐ Code uses a database (20pts)
+  - ☑ Code uses a database (20pts)
     - ☐ A database implemented in SQL with at least one correctly formed SQL statement
     - ☐ A repository interface that isolates all SQL-specific dependencies
     - ☐ An effective test for the db code
