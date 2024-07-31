@@ -5,3 +5,9 @@ anaphoric
 coordinations
 Anaphoric
 Attempto
+uncompiled
+uncompiled
+Prolog
+Clex
+Ulex
+undef
