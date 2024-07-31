@@ -26,21 +26,20 @@ def test_save_and_load_entry(repository, mocker):
         pos="noun",
         definition="a procedure intended to establish the quality, performance, or reliability of something.",
         synonyms={"exam", "trial"},
-        antonyms={"non-test"},
-        lang="en"
+        antonyms={"non-test"}
     )
 
     # Mock the save_entry method
     repository.save_entry(entry)
     mock_cursor.execute.assert_called_once_with(
-        "INSERT INTO entries (field1, field2) VALUES (%s, %s)",
-        (entry.field1, entry.field2)
+        "INSERT INTO entries (base_form, pos, definition, synonyms, antonyms) VALUES (%s, %s, %s, %s, %s)",
+        (entry.base_form, entry.pos, entry.definition, ",".join(entry.synonyms), ",".join(entry.antonyms))
     )
     mock_conn.return_value.commit.assert_called_once()
 
     # Mock the load_entries method
     mock_cursor.fetchall.return_value = [
-        (1, "test", "noun", "a procedure intended to establish the quality, performance, or reliability of something.", "exam,trial", "non-test", "en")
+        (1, "test", "noun", "a procedure intended to establish the quality, performance, or reliability of something.", "exam,trial", "non-test")
     ]
     entries = repository.load_entries()
     assert len(entries) == 1
@@ -53,7 +52,7 @@ def test_find_entry_by_id(repository, mocker):
 
     # Mock the find_entry_by_id method
     entry_id = 1
-    mock_cursor.fetchone.return_value = (1, "example", "noun", "a sample of something to be imitated or avoided", "sample", "counterexample", "en")
+    mock_cursor.fetchone.return_value = (1, "example", "noun", "a sample of something to be imitated or avoided", "sample", "counterexample")
     entry = repository.find_entry_by_id(entry_id)
     assert entry is not None
     assert entry.base_form == "example"

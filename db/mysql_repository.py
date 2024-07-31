@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Optional, Set
 import mysql.connector
-from db.repository import *
-
+from db.repository import AbstractRepository
+from model.lexical_entry import Lexeme
 
 class MySQLRepository(AbstractRepository):
 
@@ -11,7 +11,7 @@ class MySQLRepository(AbstractRepository):
     def _connect(self):
         return mysql.connector.connect(**self.connection_params)
 
-    def load_entries(self) -> List:
+    def load_entries(self) -> List[Lexeme]:
         conn = self._connect()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM entries")
@@ -19,24 +19,32 @@ class MySQLRepository(AbstractRepository):
         conn.close()
         return [self._map_row_to_entry(row) for row in rows]
 
-    def save_entry(self, entry) -> None:
+    def save_entry(self, entry: Lexeme) -> None:
         conn = self._connect()
         cursor = conn.cursor()
         cursor.execute(
-            "INSERT INTO entries (field1, field2) VALUES (%s, %s)",
-            (entry.field1, entry.field2)
+            "INSERT INTO entries (base_form, pos, definition, synonyms, antonyms) VALUES (%s, %s, %s, %s, %s)",
+            (entry.base_form, entry.pos, entry.definition, ",".join(entry.synonyms), ",".join(entry.antonyms))
         )
         conn.commit()
         conn.close()
 
-    def find_entry_by_id(self, entry_id: int):
+    def find_entry_by_id(self, entry_id: int) -> Optional[Lexeme]:
         conn = self._connect()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM entries WHERE id = %s", (entry_id,))
         row = cursor.fetchone()
         conn.close()
-        return self._map_row_to_entry(row)
+        return self._map_row_to_entry(row) if row else None
 
-    def _map_row_to_entry(self, row):
-        # Map a database row to an entry object
-        pass
+    def _map_row_to_entry(self, row) -> Lexeme:
+        if not row:
+            return None
+        id, base_form, pos, definition, synonyms, antonyms = row
+        return Lexeme(
+            base_form=base_form,
+            pos=pos,
+            definition=definition,
+            synonyms=set(synonyms.split(",")),
+            antonyms=set(antonyms.split(","))
+        )
