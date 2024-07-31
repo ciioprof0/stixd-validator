@@ -1,0 +1,2 @@
+{"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\QThe special determiners nobody but , nothing but , and their variant no ... but are used with bare plural noun phrases, bare mass noun phrases or proper names.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\Qconditional sentences (if-then sentences)\nlogical negation\nnegation as failure\nmodality\nsentence subordination\\E$"}
