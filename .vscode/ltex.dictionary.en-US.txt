@@ -1,3 +1,7 @@
 STIX-D
 anaphorically
 STIX
+anaphoric
+coordinations
+Anaphoric
+Attempto

@@ -85,10 +85,10 @@ Integers up to 12 used as determiner as in _12 cats_ can be written in character
 
 
 #### Proper Names
-
+<!-- Original ACE 6.7 text, Date: 2013-07-31
 Proper names can be singular and plural, and can occur without or with the definite determiner. Multiwords like _United-Nations_ must be hyphenated.
-
-
+-->
+Proper names can be singular and plural, and can occur without or with the definite determiner. Open compound names like _United-Nations_ must be hyphenated.
 
     John
     Mr-Miller
@@ -128,7 +128,7 @@ Arithmetic expressions are built from numbers, variables and proper names with t
 
 #### Strings
 
-Strings consists of a sequence of Unicode characters enclosed in double quotes "...". Quotation marks and backslashes within strings have to be escaped by a backslash.
+Strings consist of a sequence of Unicode characters enclosed in double quotes "...". Quotation marks and backslashes within strings have to be escaped by a backslash.
 
 Strings, variables, proper names and bracketed strings can be concatenated by the left-associative operator &. The ACE parser APE does not perform concatenations.
 
