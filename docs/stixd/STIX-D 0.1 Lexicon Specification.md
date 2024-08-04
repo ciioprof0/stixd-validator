@@ -1,7 +1,5 @@
 # STIX-D 0.1 Lexicon Specification
 <!-- ToDo List
-- Convert to STIX-D.
-- Remove line breaks in same
 - Replace ACE examples with relevant examples from STIX-D corpus.
 -->
 
@@ -14,7 +12,7 @@ This document describes the lexicon format for ACE 6.7.
 
 This document describes the lexicon format for STIX-D and ACE 6.7.
 
-Lexicons can be used in two ways. They can be used as a _Clex_ ("common lexicon" or "compiled lexicon") which is compiled into the APE executable. Alternatively, they can be used as a _Ulex_ ("user lexicon" or "uncompiled lexicon") that is loaded at run-time using the command line, the web interface, the web service, or any other interface to the parser.
+Lexicons can be used in two ways. They can be used as a _Clex_ ("common lexicon" or "compiled lexicon") which is compiled into the APE executable. Alternatively, they can be used as an _Ulex_ ("user lexicon" or "uncompiled lexicon") that is loaded at run-time using the command line, the web interface, the web service, or any other interface to the parser.
 
 User lexicons _Ulex_ can be used independently, or can complement _Clex_ in which case entries of _Ulex_ take precedence over those of _Clex_.
 
@@ -165,7 +163,7 @@ It is recommended to use the word form also as the logical symbol.
 
 ### Measurement nouns
 
-Measurement nouns (e.g. "kg", "m", "Â°C") are represented by only one kind of entry:
+Measurement nouns (e.g. "kg", "m", "°C") are represented by only one kind of entry:
 
 
 
