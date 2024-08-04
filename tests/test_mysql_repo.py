@@ -1,23 +1,21 @@
-# tests/test_mysql_repo.py
-
 import pytest
 from unittest.mock import patch, MagicMock
 from db.mysql_repository import MySQLRepository
 from model.lexical_entry import Lexeme
 
 @pytest.fixture
-def repository(mocker):
+def repository():
     connection_params = {
         'host': 'localhost',
         'user': 'my_user',
         'password': 'my_password',
         'database': 'my_database'
     }
-    mocker.patch('mysql.connector.connect')
-    return MySQLRepository(connection_params)
+    with patch('mysql.connector.connect'):
+        return MySQLRepository(connection_params)
 
-def test_save_and_load_entry(repository, mocker):
-    mock_conn = mocker.patch('mysql.connector.connect')
+def test_save_and_load_entry(repository):
+    mock_conn = patch('mysql.connector.connect').start()
     mock_cursor = MagicMock()
     mock_conn.return_value.cursor.return_value = mock_cursor
 
@@ -45,8 +43,10 @@ def test_save_and_load_entry(repository, mocker):
     assert len(entries) == 1
     assert entries[0].base_form == "test"
 
-def test_find_entry_by_id(repository, mocker):
-    mock_conn = mocker.patch('mysql.connector.connect')
+    patch.stopall()
+
+def test_find_entry_by_id(repository):
+    mock_conn = patch('mysql.connector.connect').start()
     mock_cursor = MagicMock()
     mock_conn.return_value.cursor.return_value = mock_cursor
 
@@ -56,3 +56,5 @@ def test_find_entry_by_id(repository, mocker):
     entry = repository.find_entry_by_id(entry_id)
     assert entry is not None
     assert entry.base_form == "example"
+
+    patch.stopall()
